@@ -241,7 +241,8 @@ class AutonomousWebDataAggregator:
     def initialize(self):
         # Initialize the components of the autonomous web data aggregator
         self.search_query_processor.load_nlp_model(NLP_MODEL_PATH)
-        self.search_query_processor.load_keyword_extractor(KEYWORD_EXTRACTOR_PATH)
+        self.search_query_processor.load_keyword_extractor(
+            KEYWORD_EXTRACTOR_PATH)
 
         self.url_gatherer.initialize_requests_session()
 
@@ -252,7 +253,8 @@ class AutonomousWebDataAggregator:
 
         self.error_handling.initialize_error_logger(ERROR_LOGGER)
 
-        self.integration_with_tools.initialize_data_analysis_tool(DATA_ANALYSIS_TOOL)
+        self.integration_with_tools.initialize_data_analysis_tool(
+            DATA_ANALYSIS_TOOL)
 
         # Start the continuous data update process
         self.continuous_data_updater.update_data()
@@ -263,7 +265,8 @@ class AutonomousWebDataAggregator:
             user_query = self.get_user_query()
 
             # Process the search queries
-            processed_queries = self.search_query_processor.process_search_query(user_query)
+            processed_queries = self.search_query_processor.process_search_query(
+                user_query)
 
             # Gather relevant URLs
             urls = self.url_gatherer.search_urls(processed_queries)
@@ -272,10 +275,12 @@ class AutonomousWebDataAggregator:
             extracted_data = self.web_data_extractor.extract_data(urls)
 
             # Aggregate the extracted data
-            aggregated_data = self.data_aggregator.aggregate_data(extracted_data)
+            aggregated_data = self.data_aggregator.aggregate_data(
+                extracted_data)
 
             # Perform analysis on the aggregated data
-            analysis_result = self.integration_with_tools.perform_analysis(aggregated_data)
+            analysis_result = self.integration_with_tools.perform_analysis(
+                aggregated_data)
 
             # Display the analysis result
             self.display_analysis_result(analysis_result)
